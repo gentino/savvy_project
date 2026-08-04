@@ -28,15 +28,11 @@ def register(request):
 
     if request.method == "POST":
         form = RegisterForm(request.POST, request.FILES)
-
         if form.is_valid():
             user=form.save()
             login(request,user)
-            messages.success(
-                request,
-                "Account created successfully. You can now login."
-            )
-            return redirect("accounts:login")
+            messages.success(request,"Account created successfully. You can now login.")
+            return redirect("dashboard")
     else:
         form = RegisterForm()
     context = {
