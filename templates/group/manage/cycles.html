@@ -1,0 +1,287 @@
+{% extends '../base/dashboard_base.html' %}
+{% block content %}
+
+
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-72 hidden md:flex flex-col bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline shadow-none z-50">
+<div class="p-md space-y-base flex flex-col h-full">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-lg px-2 pt-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold font-title-md shrink-0">O</div>
+<div>
+<h1 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim">Osusu Savings</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Community Finance</p>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined fill">group</span>
+<span class="font-label-sm text-label-sm">My Groups</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Contributions</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Reports</span>
+</a>
+</div>
+<!-- CTA & Footer -->
+<div class="mt-auto space-y-4 pb-4">
+<button class="w-full bg-primary hover:bg-tertiary-container text-on-primary py-3 rounded-xl font-label-sm text-label-sm font-semibold transition-colors flex justify-center items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add</span> Create Group
+                </button>
+<div class="space-y-1 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-sm px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+<a class="flex items-center gap-sm px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-label-sm text-label-sm">Logout</span>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky backdrop-blur-xl bg-surface/70 border-b border-outline-variant shadow-sm z-40">
+<div class="flex justify-between items-center w-full px-4 md:px-lg py-sm">
+<!-- Search (Left) -->
+<div class="flex-1 max-w-md hidden md:flex items-center">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-full border-outline-variant bg-surface-container-highest focus:ring-2 focus:ring-primary focus:border-transparent font-body-md text-body-md text-on-surface" placeholder="Search Osusu..." type="text"/>
+</div>
+</div>
+<!-- Mobile Brand (Centerish on mobile) -->
+<div class="md:hidden flex-1 text-center font-display-lg text-title-md font-bold text-primary">
+                    Osusu
+                </div>
+<!-- Actions (Right) -->
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-variant flex items-center justify-center text-on-surface-variant transition-colors hidden md:flex">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-variant ml-2 border border-outline-variant overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up portrait of a young professional African woman smiling, bright natural light, crisp modern photography style, neutral background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaY_1llbjRv66ZMloyeuFoTCWZQFlgSKnxXI1XuDmwUERjB9ygEDK_3JyYm2az3UfF55Py-4g7OS3kliYjaHRBp1E1cD0BVYzOp-TVHudZXGieRdCXx8VyLo7iGk_NShJhwy38gYSFR0u5RzpnLMhbb-C4qe52BmaHa9Ijfxg5LcJY1KrRvBjUrmZGNFW44aaxWJVzcjYa78OjHiN-JgEIn61wNKZnrb4kc0ExlNQj_eH8nlbngC9Xgg"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-4 md:p-lg space-y-xl max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<!-- Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="flex text-label-sm text-on-surface-variant mb-2 items-center space-x-1">
+<a class="hover:text-primary transition-colors" href="#">My Groups</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Home Deposit Circle</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-medium">Cycles</span>
+</nav>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Cycle Management</h2>
+</div>
+<!-- Actions -->
+<div class="flex gap-sm">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface border border-outline-variant rounded-lg font-label-sm font-semibold hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">settings</span> Cycle Settings
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg font-label-sm font-semibold hover:bg-tertiary-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span> Edit Schedule
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="border-b border-outline-variant overflow-x-auto hide-scrollbar">
+<nav aria-label="Tabs" class="-mb-px flex space-x-6 min-w-max">
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-sm font-medium transition-colors" href="#">Overview</a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-sm font-medium transition-colors" href="#">Members <span class="ml-1 bg-surface-variant text-on-surface px-2 py-0.5 rounded-full text-[10px]">12</span></a>
+<a class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-label-sm font-bold" href="#">Cycles</a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-sm font-medium transition-colors" href="#">Contributions</a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-label-sm font-medium transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<!-- Bento Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="bg-surface-container-lowest rounded-2xl p-lg border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-4 -mt-4"></div>
+<p class="font-label-sm text-on-surface-variant mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">sync</span> Total Cycles</p>
+<p class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">12</p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-lg border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full -mr-4 -mt-4"></div>
+<p class="font-label-sm text-on-surface-variant mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">play_circle</span> Current Cycle</p>
+<p class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">8 <span class="text-body-md text-on-surface-variant font-normal">of 12</span></p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-lg border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05),0_2px_4px_-2px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/5 rounded-bl-full -mr-4 -mt-4"></div>
+<p class="font-label-sm text-on-surface-variant mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">account_balance</span> Total Disbursement</p>
+<p class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">$12,000</p>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-lg border border-primary/20 shadow-[0_4px_6px_-1px_rgba(0,107,44,0.1),0_2px_4px_-2px_rgba(0,107,44,0.05)] relative overflow-hidden bg-gradient-to-br from-surface-container-lowest to-surface-container-low">
+<p class="font-label-sm text-on-surface-variant mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">event_upcoming</span> Next Payout</p>
+<p class="font-title-md text-title-md text-on-surface mb-2">Nov 30, 2023</p>
+<div class="flex items-center gap-2">
+<img alt="Recipient" class="w-6 h-6 rounded-full object-cover" data-alt="A small circular avatar of a mature man with glasses, professional setting, bright lighting, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_uMepMXHQjdoaFgAmpci6qeE9RXrq0aGn0S3a17sEv-PSJ6b-SL7IqfRJHhpknSHb4N8GbhVBvViU1DMliVZBjV1ETLcCTtbF-cV4DoLIiu6C_-JjgRXE7qcX0KxR3Qvfxi7oKwamYR2CpKCFElkXSsSnrQvgoYscVO3_Snib_cFj61NCrZRNTUII9Z5Fsf11bhMb1F1w_NXWk98SuJBSvIaHpqmnT2CJJ_xTvlYsGO2LyN1UpZfOOQ"/>
+<span class="font-label-sm text-on-surface-variant">David Chen</span>
+</div>
+</div>
+</div>
+<!-- Two Column Layout for Timeline and Reordering -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg items-start">
+<!-- Main Timeline List (Takes up 2 cols on LG) -->
+<div class="lg:col-span-2 space-y-md">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Cycle Timeline</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition"><span class="material-symbols-outlined text-[20px]">filter_list</span></button>
+</div>
+</div>
+<!-- Timeline Container -->
+<div class="space-y-4">
+<!-- Completed Cycle -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant flex flex-col sm:flex-row sm:items-center justify-between gap-4 opacity-75">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="w-12 h-12 rounded-lg bg-surface-variant flex flex-col items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Cyc</span>
+<span class="font-title-md text-on-surface-variant">7</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface font-semibold">Sep 1 - Sep 30, 2023</p>
+<div class="flex items-center gap-2 mt-1">
+<img alt="Recipient" class="w-5 h-5 rounded-full object-cover" data-alt="Small avatar of a young man smiling, casual attire, bright background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7N-CoKK8755RRbEapybjs3TsLN37izXRFvaQxVfYdW6-kG65VHleXz0rNnfmUacNB_jDm7hGn5ZE17MvyI84HDVpTOS0F0QaI8GJB0S9cm5zAcfJx51CCA4mWLx1FVKScipKWo959Vksrr-lF7hLqB91lcJyGsNkn8o6O2LMRRqDaGZRiVEuNDQA1EC2kRZ4zTbLOfX88vF6jPl4h4_Rv7JrYuIxRfsGj-R6gOnCAYHz8nmE_hbMboA"/>
+<span class="font-label-xs text-on-surface-variant">Marcus Johnson</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full sm:w-auto gap-6 sm:justify-end">
+<div class="text-left sm:text-right">
+<p class="font-title-md text-title-md">$1,000</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-outline-variant/20 text-on-surface-variant font-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Completed
+                                </span>
+</div>
+</div>
+<!-- Current Cycle (Elevated) -->
+<div class="bg-surface-container-lowest rounded-xl p-md border-l-4 border-l-primary border-y border-r border-outline-variant shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative">
+<div class="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-surface-container-lowest hidden sm:block"></div>
+<div class="flex items-center gap-4 w-full sm:w-auto sm:ml-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex flex-col items-center justify-center shrink-0">
+<span class="text-[10px] font-bold uppercase tracking-wider opacity-80">Cyc</span>
+<span class="font-title-md">8</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface font-semibold">Oct 1 - Oct 31, 2023</p>
+<div class="flex items-center gap-2 mt-1">
+<img alt="Recipient" class="w-5 h-5 rounded-full object-cover" data-alt="A small circular avatar of a mature man with glasses, professional setting, bright lighting, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIwZJHsGS-X6GKHfU2hDyhrHfPG8RKFq-WHiaeu9Uir26HhJteJSKj5_ox7QicDlY288E7p4BpH7Co-c3a42t5FSUQlqBRVQke7Lqy-HJ46ET4nYEoWr8RU2ynXJgWSWOvIDfX65q4zcjxwukodYbX6Mc1HmHC1mqU1BaieNWesjSNU_M76_pj4n1gPD725opiZANfl887H4DyBIwyFH30zH7bKAxxB2beJ-3JzNc8ewXEewnqvx39BA"/>
+<span class="font-label-xs text-on-surface-variant font-medium">David Chen</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full sm:w-auto gap-6 sm:justify-end">
+<div class="text-left sm:text-right">
+<p class="font-title-md text-title-md text-primary">$1,000</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-xs flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">autorenew</span> Active
+                                    </span>
+<button class="text-label-xs text-primary hover:underline font-semibold flex items-center gap-1">Manually Disburse <span class="material-symbols-outlined text-[14px]">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<!-- Upcoming Cycle -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant border-dashed flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="w-12 h-12 rounded-lg bg-surface flex flex-col items-center justify-center shrink-0 border border-outline-variant border-dashed">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Cyc</span>
+<span class="font-title-md text-on-surface-variant">9</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface font-semibold">Nov 1 - Nov 30, 2023</p>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-5 h-5 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary text-[10px] font-bold">SJ</div>
+<span class="font-label-xs text-on-surface-variant">Sarah Jenkins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between w-full sm:w-auto gap-6 sm:justify-end">
+<div class="text-left sm:text-right">
+<p class="font-title-md text-title-md text-on-surface-variant">$1,000</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> Upcoming
+                                </span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 mt-4 border border-outline-variant rounded-xl font-label-sm text-on-surface-variant hover:bg-surface-variant transition flex justify-center items-center gap-2">
+                        View All Past Cycles <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Recipient Rotation (Side Panel) -->
+<div class="bg-surface-container-low rounded-2xl p-md lg:p-lg border border-outline-variant shadow-sm sticky top-24">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-md text-title-md text-on-surface">Recipient Order</h3>
+<span class="bg-surface-variant text-on-surface-variant px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide">Draft</span>
+</div>
+<p class="text-label-xs text-on-surface-variant mb-6">Drag and drop members to reorder future cycle payouts.</p>
+<div class="space-y-2">
+<!-- Draggable Item 1 (Next) -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-sm cursor-move hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-outline cursor-grab active:cursor-grabbing">drag_indicator</span>
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary text-xs font-bold shrink-0">SJ</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-on-surface truncate">Sarah Jenkins</p>
+<p class="text-[10px] text-primary font-semibold">Cycle 9</p>
+</div>
+</div>
+<!-- Draggable Item 2 -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/50 cursor-move hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-outline/50 cursor-grab active:cursor-grabbing">drag_indicator</span>
+<img alt="Recipient" class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Avatar of an older woman smiling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxNVYy_t3-jfClSxxszjWagLWegA_ck2NGF2P2-axTzcKCSEFd6E8dMqeOMBQih22UfRtEGlM2seqMbS4mCeizPmXq9nX8VzVX845-dxp3X42a7iico8-QSOc8Mmnnsr5RRB_gXu3cVkveHmpQWJ2mbBwlINXzl_A_D1dv6o_DoCxdmt07kBFua2HoO7Cp6PSGyytXdFw-fFfrWAnAy5QdVC_8M0EauJ5fMhTuBWVUOy9N2dhDUOuihQ"/>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-on-surface truncate">Maria Garcia</p>
+<p class="text-[10px] text-on-surface-variant">Cycle 10</p>
+</div>
+</div>
+<!-- Draggable Item 3 -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/50 cursor-move hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-outline/50 cursor-grab active:cursor-grabbing">drag_indicator</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant text-xs font-bold shrink-0">KW</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-on-surface truncate">Kevin Wu</p>
+<p class="text-[10px] text-on-surface-variant">Cycle 11</p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant flex gap-3">
+<button class="flex-1 py-2 border border-outline-variant rounded-lg font-label-sm text-on-surface-variant hover:bg-surface-variant transition">Cancel</button>
+<button class="flex-1 py-2 bg-primary text-on-primary rounded-lg font-label-sm hover:bg-tertiary-container transition shadow-sm">Save Order</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+{% include '../includes/bottom_nav.html' %}
+{% endblock %}
