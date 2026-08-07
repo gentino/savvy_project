@@ -4,8 +4,15 @@ from .models import User
 
 
 def styles():
-    return '''w-full pl-xl pr-md py-sm bg-surface-container-low border border-outline-variant rounded-xl 
-    focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none font-body-md text-on-surface'
+    return '''w-full pl-12 pr-4 py-3
+    bg-surface-container-low
+    border border-outline-variant rounded-xl
+    focus:ring-2 focus:ring-primary
+    focus:border-transparent
+    transition-all
+    outline-none
+    font-body-md
+    text-on-surface
     '''
 
 class RegisterForm(UserCreationForm):
@@ -47,16 +54,11 @@ class RegisterForm(UserCreationForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        base_class = (
-            "w-full bg-surface-container-lowest border "
-            "border-outline-variant rounded-xl px-sm py-sm "
-            "focus:ring-2 focus:ring-primary "
-            "focus:border-primary")
-        
+      
         for name, field in self.fields.items():
             if name == "profile_photo":
                 continue
-            field.widget.attrs["class"] = base_class
+            field.widget.attrs["class"] = styles()
         
 
 class LoginForm(forms.Form):
