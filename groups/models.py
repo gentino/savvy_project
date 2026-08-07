@@ -31,6 +31,8 @@ class Group(models.Model):
     contribution_frequency = models.CharField(max_length=20,choices=FREQUENCY_CHOICES)
     visibility = models.CharField(max_length=20,choices=VISIBILITY_CHOICES,default=PRIVATE)
     max_members = models.PositiveIntegerField(default=20)
+    is_private = models.BooleanField(default=True)
+    penalty_rules = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL,through="GroupMember",related_name="joined_groups")
     created_at = models.DateTimeField(auto_now_add=True)

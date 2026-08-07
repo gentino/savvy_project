@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'withdrawals',
     'savings',
     'dashboard',
+    'wallet',
 ]
 
 MIDDLEWARE = [
